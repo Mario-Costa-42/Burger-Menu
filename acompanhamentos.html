@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acompanhamentos</title>
+  <link rel="icon" type="image/x-icon" href="./assets/burger.png">
+  <link rel="stylesheet" href="acompanhamentos.css" />
+</head>
+
+<body>
+  <a href="./menu.html">
+    <img src="./assets/arrow_back.svg" alt="Voltar" id="home" />
+  </a>
+
+  <div class="container">
+    <h1 class="section-title">Acompanhamentos</h1>
+
+    <p class="intro">
+      Aqui na I’S BURGER, a gente leva a sua fome a sério.
+      Por isso, todos os nossos hambúrgueres acompanham, como cortesia da casa,
+      uma porção caprichada de batata frita crocante, feita na hora.
+    </p>
+
+    <!-- <p class="intro">
+      Porque pra gente, hambúrguer sem batata é tipo filme sem pipoca:
+      dá pra encarar, mas não tem graça.
+    </p>
+
+    <p class="intro destaque">
+      Então relaxa, escolhe seu burger favorito e deixa o resto com a gente.
+      A batata já está no caminho.
+    </p> -->
+
+    <div class="free-item">
+      <span class="icon">🍟</span>
+      <span class="text">Uma porção de batata frita por nossa conta</span>
+    </div>
+
+    <div class="items">
+      <label class="item">
+        <div class="item-info">
+          <span class="item-name">Porção extra de 120g</span>
+          <span class="item-price">R$ 6,00</span>
+        </div>
+
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity(this, -1)">➖</button>
+          <span>0</span>
+          <button type="button" onclick="changeQuantity(this, 1)">➕</button>
+        </div>
+      </label>
+
+      <label class="item">
+        <div class="item-info">
+          <span class="item-name">Potinho de molho da casa</span>
+          <span class="item-price">R$ 3,00</span>
+        </div>
+
+        <span class="item-desc">
+          Maionese de alho ou maionese verde
+        </span>
+
+        <div class="quantity-control">
+          <button type="button" onclick="changeQuantity(this, -1)">➖</button>
+          <span>0</span>
+          <button type="button" onclick="changeQuantity(this, 1)">➕</button>
+        </div>
+      </label>
+    </div>
+
+    <button class="btn-carrinho">🛒 Adicionar ao Carrinho</button>
+  </div>
+
+  <script>
+    function changeQuantity(button, amount) {
+      const span = button.parentElement.querySelector("span");
+      let value = parseInt(span.textContent) + amount;
+      if (value < 0) value = 0;
+      span.textContent = value;
+    }
+  </script>
+</body>
+</html>
