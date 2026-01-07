@@ -61,6 +61,7 @@ function carregarCarrinho() {
 
   if (carrinho.length === 0) {
     container.textContent = "Carrinho vazio.";
+    container.style.color = "#E9CEA2";
     localStorage.setItem("resumoPedido", "");
     return;
   }
@@ -177,7 +178,7 @@ function enviarWhatsapp() {
   }
 
   const textoFinal = "📋 Pedido:\n" + resumo + textoPagamento;
-  const numero = "5532984976952"; 
+  const numero = "5532984091506"; 
   const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(textoFinal);
   window.location.href = url;
   localStorage.clear();
