@@ -1,116 +1,171 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* --- MODERN DESIGN THEME --- */
+        :root {
+            /* Using a refreshing blue/teal for drinks, or keep orange to match brand. 
+               Let's stick to the previous orange for brand consistency. */
+            --primary-color: #d35400; 
+            --bg-color: #1D1E19;
+            --card-bg: #1D1E19;
+            --text-dark: #fbfdff;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #F8E9E1;
-  height: 100vh;
-  padding: 20px;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding-bottom: 100px; /* Space for fixed button */
+            color: var(--text-dark);
+        }
 
-#home {
-  float: left;
-  width: 30px;
-  filter: brightness(0) saturate(100%) invert(0);
-  margin-bottom: 10px;
-  cursor: pointer;
-}
+        /* Header Styling */
+        header {
+            background: var(--card-bg);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-#EscolhaTitle {
-  text-align: center;
-  font-size: 2.5em;
-  background-color: #9174df;
-  border: 2px solid rgb(170, 139, 0);
-  color: #fff;
-  border-radius: 10px;
-  margin: 10px auto;
-  padding: 12px 16px;
-  width: fit-content;
-}
+        #home {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
 
-.container {
-  max-width: 350px;
-  margin: 20px auto;
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  border: 2px solid #000;
-  cursor: pointer;
-  transition: 0.3s;
-}
+        h1 {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
 
-.container:hover {
-  border-color: #5cd40c;
-  background-color: #c8f7c5;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+        .subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
 
-.container.selected {
-  border-color: #5cd40c;
-  background-color: #a8f0a0;
-}
+        /* Container & Grid */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
 
-h2 {
-  margin-bottom: 8px;
-  font-size: 1.4rem;
-}
+        /* Category Sub-headers */
+        h3.category-title {
+            font-size: 1.1rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
 
-p {
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-  color: #444;
-}
+        /* Product Cards */
+        .item-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
 
-input[type="radio"] {
-  display: none;
-}
+        .item-info {
+            flex-grow: 1;
+        }
 
-#sectionPrecos{
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    gap: 10px;
-    box-sizing: border-box;
-}
+        .item-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 4px;
+        }
 
-#preco300, #preco500{
-        cursor: pointer;
-        text-align: center;
-        font-size: 1.5em;
-        color: #000;
-        padding: 12px 16px;
-        margin: 10px auto;
-        font-weight: bold;
-        background-color: #fb9644;
-        border-radius: 10px;
-        border: 2px solid #000;
-        width: 200px;
-        transition: all 0.2s ease;
-        box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+        .item-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
 
-}
+        .item-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            display: block;
+            margin-top: 8px;
+        }
 
-.navegacao button{ 
-margin-top: 20px; 
-font-size: 18px; 
-gap: 10px;
-padding: 15px 20px;
-}
+        /* Quantity Controls */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            background: #B72925;
+            border-radius: 20px;
+            padding: 5px;
+        }
 
-#preco500.selecionado {
-  background-color: #5cd40c !important;
-  /* color: #fff; */
-  border-color: #c75b00;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-}
+        .quantity-control button {
+            background: var(--card-bg);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-#preco300.selecionado {
-  background-color: #5cd40c !important;
-  /* color: #fff; */
-  border-color: #c75b00;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-}
+        .quantity-control span {
+            width: 30px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Fixed Cart Button */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 15px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-carrinho {
+            background: #006400;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
+            transition: background 0.3s;
+        }
+
+        /* .btn-carrinho:hover {
+            background: #a04000;
+        } */

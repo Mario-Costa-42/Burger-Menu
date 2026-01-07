@@ -33,40 +33,20 @@ function brl(n) {
 }
 
 function descricaoItem(item) {
-  if (item.produto === "Milkshake") {
-    return `${item.produto} - ${item.nome || ""} x${item.quantidade || 1} = R$ ${brl(item.subtotal)}`;
+  // HAMBÚRGUER
+  if (item.produto === "Hambúrguer") {
+    return `${item.nome} x${item.quantidade} = R$ ${brl(item.subtotal)}`;
   }
-  if (item.produto === "Açaí") {
-    const extrasArr = Array.isArray(item.extras) ? item.extras : [];
-    const extrasTxt = extrasArr.length
-      ? extrasArr.map(e => `${e.nome} (+R$ ${brl(e.preco)})`).join(", ")
-      : "Nenhum";
-    const cob = (item.coberturas && item.coberturas.length) ? item.coberturas.join(", ") : "Nenhuma";
-    const acomp = (item.acompanhamentos && item.acompanhamentos.length) ? item.acompanhamentos.join(", ") : "Nenhum";
-    return `${item.produto} ${item.tamanho} - Coberturas: ${cob} - Acompanhamentos: ${acomp} - Extras: ${extrasTxt} = R$ ${brl(item.subtotal)}`;
+
+  // ACOMPANHAMENTO
+  if (item.produto === "Acompanhamento") {
+    return `${item.nome} x${item.quantidade} = R$ ${brl(item.subtotal)}`;
   }
-  if (item.produto === "Escolhas da Casa") {
-    return `${item.produto}: ${item.sabor} ${item.volume} = R$ ${brl(item.subtotal)}`;
+
+  // BEBIDAS
+  if (item.produto === "Bebidas") {
+    return `${item.nome} x${item.quantidade} = R$ ${brl(item.subtotal)}`;
   }
-  if (item.produto === "Copos Trufados") {
-  const coberturas = (item.coberturas && item.coberturas.length)
-    ? item.coberturas.join(", ")
-    : "Nenhuma";
-
-  const acompanhamentos = (item.acompanhamentos && item.acompanhamentos.length)
-    ? item.acompanhamentos.join(", ")
-    : "Nenhum";
-
-  const frutas = (item.frutas && item.frutas.length)
-    ? item.frutas.join(", ")
-    : "Nenhuma";
-
-  const extras = (item.extras && item.extras.length)
-    ? item.extras.map(e => `${e.nome} (+R$ ${brl(e.preco)})`).join(", ")
-    : "Nenhum";
-
-  return `${item.produto}: ${item.sabor} ${item.tamanho} - Coberturas: ${coberturas} - Acompanhamentos: ${acompanhamentos} - Frutas: ${frutas} - Extras: ${extras} = R$ ${brl(item.subtotal)}`;
-}
 
   return "Item"; 
 }
@@ -139,6 +119,7 @@ function carregarCarrinho() {
 
   const totalP = document.createElement("h2");
   totalP.textContent = "Total: R$ " + brl(totalGeral);
+  totalP.style.color = "#E9CEA2";
   container.appendChild(totalP);
   container2.appendChild(totalP.cloneNode(true));
 
@@ -150,14 +131,12 @@ function editarItem(index) {
   const item = getCarrinho()[index];
   if (!item) return;
 
-  if (item.produto === "Açaí") {
-    window.location.href = "acai.html";
-  } else if (item.produto === "Milkshake") {
-    window.location.href = "milkshake.html";
-  } else if (item.produto === "Escolhas da Casa") {
-    window.location.href = "prontos.html";
-  } else if (item.produto === "Copos Trufados") {
-    window.location.href = "./coposTrufados/copoTrufado.html";
+  if (item.produto === "Hambúrguer") {
+    window.location.href = "hamburguer.html";
+  } else if (item.produto === "Acompanhamento") {
+    window.location.href = "acompanhamentos.html";
+  } else if (item.produto === "Bebidas") {
+    window.location.href = "bebidas.html";
   } else {
     alert("Não é possível editar este item.");
   }
@@ -178,7 +157,7 @@ function mostrarOpcaoPagamento() {
 }
 
 function copiarPix() {
-  const chavePix = "f5f6e67f-fade-4df6-a7e6-d49175c5f6ed";
+  const chavePix = "teste_exemplo";
   navigator.clipboard.writeText(chavePix);
   alert("Chave Pix copiada!");
 }
