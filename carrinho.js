@@ -178,7 +178,7 @@ function enviarWhatsapp() {
   }
 
   const textoFinal = "📋 Pedido:\n" + resumo + textoPagamento;
-  const numero = "5532984091506"; 
+  const numero = "5532984923417"; 
   const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(textoFinal);
   window.location.href = url;
   localStorage.clear();
