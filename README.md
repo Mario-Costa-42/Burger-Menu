@@ -1,2 +1,2 @@
-# Is-Burger-Menu
+# Burger-Menu
  An online menu for a snack bar
